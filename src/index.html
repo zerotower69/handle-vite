@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="./main.js"></script>
+    <link ref="she" />
+    <title>vue + vite app</title>
+  </head>
+  <body id="app">
+    <script>
+      // 处理process这个变量
+      window.process = {
+        env: {
+          NODE_ENV: "dev",
+        },
+      };
+      //处理css加载
+      window.getVueCssFile = function (url) {
+        const link = document.createElement("link");
+        // link.setAttribute("rel", "stylesheet");
+        // link.setAttribute("herf", "." + url);
+        link.rel = "stylesheet";
+        link.href = `.${url}`;
+        link.type = "text/css";
+        const heads = document.getElementsByTagName("head");
+        // console.log(link, heads);
+        heads.item(0).appendChild(link);
+        // document.write(`<link rel='stylesheet' href="${url}">`);
+      };
+    </script>
+    <div>hello,vite!</div>
+  </body>
+</html>
